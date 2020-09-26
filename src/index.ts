@@ -11,10 +11,14 @@ const fetchXml = async (keyword: string) => {
 	const url = `${config.edcbHost}/api/SearchEvent?andKey=${encodeURI(
 		keyword
 	)}&network=${config.network.toString()}`;
-	return await fetch(url).then((res) => {
-		if (!res.ok) throw new Error(`${res.status} - ${res.statusText}`);
-		return res.text();
-	});
+	return await fetch(url)
+		.then((res) => {
+			if (!res.ok) throw new Error(`${res.status} - ${res.statusText}`);
+			return res.text();
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 };
 
 const buildEventMsg = (eventInfo: eventInfo) => {
