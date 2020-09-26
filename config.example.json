@@ -1,0 +1,9 @@
+{
+  "network": 3,
+  "keywords": [
+    "水瀬いのり",
+    "佐倉綾音"
+  ],
+  "lineNotifyToken": "<line notify token>",
+  "edcbHost": "http://edcb.internal:5510"
+}

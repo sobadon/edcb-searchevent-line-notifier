@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+    container_name: edcb-searchevent-line-notifier
+    restart: unless-stopped
+    volumes:
+      - "./config.json:/app/config.json:ro"
