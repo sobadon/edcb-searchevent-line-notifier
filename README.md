@@ -1,0 +1,1 @@
+# edcb-searchevent-line-notifier
