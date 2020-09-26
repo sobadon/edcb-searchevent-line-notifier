@@ -46,6 +46,7 @@ const main = async () => {
 		const xml = await fetchXml(keyword);
 		const jsonObj: searchApiResponse = parser.parse(xml);
 		if (!jsonObj.entry.items) return;
+		if (!jsonObj.entry.items.eventinfo) return;
 		jsonObj.entry.items.eventinfo.sort((a, b) =>
 			`${a.startDate + a.startTime}` > `${b.startDate + b.startTime}` ? 1 : -1
 		);
