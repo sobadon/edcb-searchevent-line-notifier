@@ -17,7 +17,7 @@ const fetchXml = async (keyword: string) => {
 	});
 };
 
-const parseEventMsg = (eventInfo: eventInfo) => {
+const buildEventMsg = (eventInfo: eventInfo) => {
 	// とりあえず有料放送は除外
 	if (eventInfo.freeCAFlag === 1) return;
 
@@ -52,14 +52,14 @@ const main = async () => {
 		);
 		let postMsg = `【${keyword}】\n`;
 		for (const eventInfo of jsonObj.entry.items.eventinfo) {
-			const msg = parseEventMsg(eventInfo);
+			const msg = buildEventMsg(eventInfo);
 			if (!msg) continue;
 			if (postMsg.length + msg.length >= lineNotifyCharacterLimit) {
 				// とりあえず順次送信させる
 				post(postMsg);
 				postMsg = `${msg}\n\n`;
 			} else {
-				postMsg += `${parseEventMsg(eventInfo)}\n\n`;
+				postMsg += `${buildEventMsg(eventInfo)}\n\n`;
 			}
 		}
 	}
