@@ -1,6 +1,6 @@
 # edcb-searchevent-line-notifier
 
-EDCB の Web API を利用して、指定したキーワードを含む番組を LINE Notify を介して通知します。
+EDCB の Web API と LINE Notify を利用して、指定したキーワードを含む番組を通知します。
 
 ```
 $ git clone https://github.com/sobadon/edcb-searchevent-line-notifier.git
